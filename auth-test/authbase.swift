@@ -57,7 +57,7 @@ func fetchInfo()async throws -> UserInfo {
         //    取得したトークンをデバッグ出力
         debugPrint(token)
         //        アクセス先のURLを作成
-        guard let url = URL(string: "https://mattuu0mac.tail6cf7b.ts.net/auth/me") else {
+        guard let url = URL(string: "https://authbase-test.kokomeow.com/auth/me") else {
             debugPrint("Invalid URL")
             return UserInfo(email: "", name: "", provCode: "", provUID: "0", userId: "")
         }
