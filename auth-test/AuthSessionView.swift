@@ -18,7 +18,7 @@ struct AuthSessionView: UIViewControllerRepresentable {
     //    認証成功時に呼ばれるクロージャ（関数）。リダイレクトされたURLが引数として渡される
     var callback: (URL) -> Void
     //    認証を開始するためのURL。ログインページなどに飛ばす
-    let authURL = "https://authbase-test.kokomeow.com/"
+    let authURL = "https://authbase-test.kokomeow.com/auth/oauth/google?ismobile=1"
     //    認証後にリダイレクトされるURLスキーム。
     let customURLScheme = "authbase"
     
@@ -40,7 +40,8 @@ struct AuthSessionView: UIViewControllerRepresentable {
             if let callbackURL {
                 callback(callbackURL)
             } else if let error {
-                fatalError(error.localizedDescription)
+                debugPrint(error.localizedDescription)
+                return
             }
         }
         //        認証時にSafariの一時的なセッションを使う

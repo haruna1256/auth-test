@@ -29,10 +29,11 @@ struct LoginView: View {
                     AuthSessionView{
                         //                        クロージャとして callbackURL を受け取っています（おそらくOAuthやURLスキームによる認証結果）
                         callbackURL in
+                        
+                        self.code = getCode(callbackURL: callbackURL)
                         //                        self は、今の構造体やクラスの中で使っている自分自身
                         //                         self.code = 状態変数 code（@State）の中身
                         //                        認証後に受け取ったURLからトークンを抽出して、code にセット
-                        self.code = getCode(callbackURL: callbackURL)
                     }
                 }
                 Spacer()
@@ -58,7 +59,7 @@ struct LoginView: View {
             print("Code value:\(codeValue)")
             
 //            KeyChain（キーチェーン）は、Appleの提供する安全なデータ保存領域で、ログイントークンやパスワードなどの機密情報を保存する
-            saveKeyChain(tag:"authToken",value: codeValue)
+            saveKeyChain(tag: "authToken", value: codeValue)
 //            取得したトークンを返す
             return codeValue
             

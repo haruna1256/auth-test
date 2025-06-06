@@ -10,10 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            NavigationView {
                 //            loginページに飛ばす
-                LoginView()
-            }
+            LoginView()
+            
             
         }
     }
